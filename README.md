@@ -19,26 +19,6 @@ The dashboard created in Power BI (FD_Booking_Dashboard.pbix) provides an intera
 
 🧮 FD Interest & Maturity Calculation – Auto-calculates interest rates based on amount and tenor.
 
-🗂️ Project Structure
-FD_Booking_System_SQL_PowerBI/
-│
-├── README.md                     # Main project documentation
-├── README_run_instructions.txt   # Detailed setup and run guide
-├── ai_summary.txt                # Optional summary for AI/ML ideas
-│
-├── app.py                        # Entry point for app integration
-├── fd_ai_single_user.py          # Single user FD booking and validation script
-├── fd_ai_sqlserver.py            # SQL Server version for bulk or multiple user booking
-├── generate_dummy_excel.py       # Generates dummy customer data for testing
-│
-├── dummy_users.xlsx              # Dummy customer input file
-├── fd_bookings.csv               # CSV export of bookings
-├── powerbi_users.csv             # Data for Power BI import
-├── fd_data.db                    # SQLite database (alternative to SQL Server)
-│
-├── power_query_sql_connect.m     # Power BI M-script for SQL connection
-├── requirements.txt              # Python dependencies
-└── .gitignore                    # File to exclude cache, env, and temp data
 
 🧩 Database Design (SQL Server)
 
