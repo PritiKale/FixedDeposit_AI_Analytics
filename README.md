@@ -1,48 +1,153 @@
-FD Booking & Data Analytics Demo
-================================
+💰 FD_Booking_System_SQL_PowerBI
+📘 Project Overview
 
-What's included
-- Flask web app to upload an Excel file with user details and simulate FD bookings.
-- Dummy Excel file with 10 users: dummy_users.xlsx
-- CSV for Power BI import: powerbi_users.csv
-- Simple validation logic and booking simulation saved to fd_bookings.csv
+The FD Booking System is a Python-based automation project that integrates with SQL Server for data storage and Power BI for visualization.
+It allows users to book Fixed Deposits (FDs) with validation, interest calculation, and AI-powered insights.
+The dashboard created in Power BI (FD_Booking_Dashboard.pbix) provides an interactive view of all booking activities.
 
-Validation rules used (demo):
-- Age must be >= 18
-- KYC must be completed (True/Yes/1)
-- Account number must be exactly 12 digits
-- Minimum FD amount is 1000
-- Maximum FD amount is 2,000,000
-- Uniqueness: the demo prevents booking more than one FD for the same account number by checking fd_bookings.csv
+⚙️ Key Features
 
-How to run
-1. Create a virtualenv and install requirements:
-   python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   venv\Scripts\activate   # Windows
-   pip install -r requirements.txt
+✅ User Validation – Checks KYC status, age, and account validity before booking.
 
-2. Run the Flask app:
-   python app.py
+💾 SQL Server Integration – Stores all booking and validation data in relational tables.
 
-3. Open http://127.0.0.1:5000 and upload dummy_users.xlsx (or your own Excel)
+🧠 AI Automation Ready – Python scripts can be extended to include ML models for interest forecasting.
 
-Power BI
---------
-- Use powerbi_users.csv (provided) to import into Power BI Desktop.
-- Create visuals: count of successful FDs (based on post-processing fd_bookings.csv), distribution of FD amounts, maturity amount vs tenor, etc.
-- For automated analytics, export fd_bookings.csv from the app folder and import/update into Power BI.
+📊 Power BI Dashboard – Visualizes key metrics such as total FD amount, booking progress, status distribution, and interest rate trends.
 
-ML / Recommendation (optional)
-------------------------------
-A simple demo ML approach would be to train a small model that recommends tenor or FD amount based on user age and amount — in this project we provide a rule-based rate calculator in app.py.
-If you want, I can add a small sklearn example that predicts recommended tenor based on historical dummy data.
+📅 Booking Logs – Each booking (successful or failed) is recorded with timestamps.
 
-Files
-- app.py
-- templates/ (index.html, upload.html, result.html)
-- static/styles.css
-- dummy_users.xlsx
-- powerbi_users.csv
-- requirements.txt
-- README.md
+🧮 FD Interest & Maturity Calculation – Auto-calculates interest rates based on amount and tenor.
+
+🗂️ Project Structure
+FD_Booking_System_SQL_PowerBI/
+│
+├── README.md                     # Main project documentation
+├── README_run_instructions.txt   # Detailed setup and run guide
+├── ai_summary.txt                # Optional summary for AI/ML ideas
+│
+├── app.py                        # Entry point for app integration
+├── fd_ai_single_user.py          # Single user FD booking and validation script
+├── fd_ai_sqlserver.py            # SQL Server version for bulk or multiple user booking
+├── generate_dummy_excel.py       # Generates dummy customer data for testing
+│
+├── dummy_users.xlsx              # Dummy customer input file
+├── fd_bookings.csv               # CSV export of bookings
+├── powerbi_users.csv             # Data for Power BI import
+├── fd_data.db                    # SQLite database (alternative to SQL Server)
+│
+├── power_query_sql_connect.m     # Power BI M-script for SQL connection
+├── requirements.txt              # Python dependencies
+└── .gitignore                    # File to exclude cache, env, and temp data
+
+🧩 Database Design (SQL Server)
+
+Database Name: FD_Booking_DB
+Tables:
+
+validated_users
+
+Name, Age, KYC_Completed, Account_Number, FD_Amount, Tenor_Years, Status, Error_Details
+
+fd_bookings
+
+Booking_ID, Name, Account_Number, FD_Amount, Tenor_Years, Interest_Rate, Maturity_Amount, Booked_At, Progress, Error_Details
+
+🧠 Python Components
+File	Purpose
+fd_ai_single_user.py	Validates and books FD for a single user interactively.
+fd_ai_sqlserver.py	Handles multiple user bookings directly from SQL database.
+generate_dummy_excel.py	Creates dummy users for testing FD logic.
+app.py	Optional file to integrate logic or run automated flows.
+🚀 How to Run the Project
+🧾 Step 1: Install Requirements
+
+Open your terminal or command prompt inside the project folder and run:
+
+pip install -r requirements.txt
+
+🧩 Step 2: Ensure SQL Server is Running
+
+Make sure your local SQL Server service is active.
+In PowerShell or Command Prompt:
+
+Get-Service *sql*
+
+
+You should see services like MSSQLSERVER or SQLEXPRESS running.
+
+🧱 Step 3: Run the Python Script
+
+To book an FD for a single user:
+
+python fd_ai_single_user.py
+
+
+Follow the prompts:
+
+Enter name, age, KYC status, and account number
+
+Enter FD amount and tenor (in years)
+
+The script validates and stores data into FD_Booking_DB automatically.
+
+For multi-user or AI-based processing:
+
+python fd_ai_sqlserver.py
+
+📊 Step 4: Open the Power BI Dashboard
+
+Launch Power BI Desktop
+
+Open your file:
+FD_Booking_Dashboard.pbix
+
+Connect to the SQL Server database:
+
+Home → Get Data → SQL Server Database
+Server: localhost
+Database: FD_Booking_DB
+
+
+Load both tables:
+
+fd_bookings
+
+validated_users
+
+Refresh data to view new bookings and status updates.
+
+🔗 Power BI Dashboard Highlights
+
+File: FD_Booking_Dashboard.pbix
+
+Connected Source: SQL Server → FD_Booking_DB
+
+Visuals Included:
+
+📈 FD Bookings over Time (Line Chart)
+
+💵 FD Amount by Tenor (Bar Chart)
+
+🟢 Booking Status (Donut Chart)
+
+📊 Interest Rate by Tenor
+
+🔍 Validation Errors Summary
+
+🧾 Requirements
+pandas>=1.3
+openpyxl>=3.0
+transformers>=4.30
+torch>=1.12
+pyodbc
+
+🧩 Future Enhancements
+
+🔹 Add AI prediction model for FD interest rate forecasting
+
+🔹 Automate email alerts for failed bookings
+
+🔹 Add Power BI buttons for “View FD Details” or “Add New Booking”
+
+🔹 Integrate API-based booking with real-time data
