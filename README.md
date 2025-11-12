@@ -21,7 +21,7 @@ FD Interest & Maturity Calculation – Automatically calculates interest rates b
 
 Database Design (SQL Server)
 
-Database Name: FD_Booking_DB
+**Database Name: FD_Booking_DB**
 
 **Tables:**
 
@@ -33,7 +33,7 @@ fd_bookings
 
 Columns: Booking_ID, Name, Account_Number, FD_Amount, Tenor_Years, Interest_Rate, Maturity_Amount, Booked_At, Progress, Error_Details
 
-Python Components
+**Python Components**
 File	Purpose
 fd_ai_single_user.py	Validates and books FD for a single user interactively.
 fd_ai_sqlserver.py	Handles multiple user bookings directly from SQL database.
@@ -63,7 +63,7 @@ To book an FD for a single user:
 python fd_ai_single_user.py
 
 
-Follow the prompts:
+**Follow the prompts:**
 
 Enter name, age, KYC status, and account number
 
@@ -87,7 +87,7 @@ Home → Get Data → SQL Server Database
 
 Server: localhost
 
-Database: FD_Booking_DB
+**Database: FD_Booking_DB**
 
 Load both tables:
 
@@ -99,7 +99,7 @@ Refresh data to view new bookings and status updates.
 
 Power BI Dashboard Highlights
 
-File: FD_Booking_Dashboard.pbix
+**File: FD_Booking_Dashboard.pbix**
 Connected Source: SQL Server → FD_Booking_DB
 
 Visuals Included:
@@ -121,7 +121,7 @@ transformers>=4.30
 torch>=1.12
 pyodbc
 
-Future Enhancements
+**Future Enhancements**
 
 Add AI prediction model for FD interest rate forecasting
 
