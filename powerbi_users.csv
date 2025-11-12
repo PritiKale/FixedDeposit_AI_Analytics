@@ -1,0 +1,11 @@
+user_id,name,age,kyc_completed,account_number,amount_to_fd,preferred_tenor_years
+U100,Aarav Patel,30,True,123456789012,50000,1
+U101,Saanvi Sharma,25,True,234567890123,150000,2
+U102,Rohit Kumar,17,False,345678901234,20000,1
+U103,Neha Singh,45,True,456789012345,800000,5
+U104,Vikram Desai,60,True,567890123456,1000000,3
+U105,Priya Nair,33,True,678901234567,900,1
+U106,Karan Mehta,28,True,789012345678,250000,2
+U107,Isha Rao,52,True,890123456789,120000,4
+U108,Aditya S,40,False,901234567890,50000,1
+U109,Maya Iyer,22,True,012345678901,10000,1
