@@ -1,0 +1,1 @@
+8 successful bookings, 2 failed. Total amount booked: 3282000.00. Processed 10 users . Average interest rate: 6.12%.
